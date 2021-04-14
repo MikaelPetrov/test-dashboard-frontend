@@ -1,0 +1,53 @@
+.header {
+  display: flex;
+  padding-left: 15px;
+  padding-bottom: 10px;
+  // display: grid;
+  // grid-template-columns: 414px 125px 109px 249px;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  align-items: center;
+  text-transform: uppercase;
+  color: #999999;
+
+  &__name {
+    display: flex;
+    align-items: center;
+    width: 414px;
+  }
+
+  &__type {
+    display: flex;
+    align-items: center;
+    width: 125px;
+  }
+
+  &__status {
+    display: flex;
+    align-items: center;
+    width: 109px;
+  }
+
+  &__site {
+    display: flex;
+    align-items: center;
+    width: 249px;
+  }
+}
+
+.header__arrowUp-icon {
+  margin-left: 8px;
+  width: 7px;
+  height: 4px;
+  cursor: pointer;
+}
+
+.header__arrowDown-icon {
+  margin-left: 8px;
+  width: 7px;
+  height: 4px;
+  cursor: pointer;
+  transform: rotate(180deg);
+}
