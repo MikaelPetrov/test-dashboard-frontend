@@ -1,0 +1,124 @@
+.card {
+  display: flex;
+  width: 100%;
+  height: 70px;
+  background: #ffffff;
+  border-radius: 3px;
+  margin-bottom: 5px;
+
+  &:hover {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  &:last-child {
+    margin-bottom: 0px;
+  }
+
+  &__indicator {
+    width: 4px;
+    border-radius: 3px 0px 0px 3px;
+
+    &_dark-red {
+      background: #e14165;
+    }
+
+    &_purple {
+      background: #8686ff;
+    }
+
+    &_light-purple {
+      background: #c2c2ff;
+    }
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+    padding-left: 11px;
+    width: 389px;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    color: #474747;
+    font-weight: bold;
+  }
+
+  &__type {
+    display: flex;
+    align-items: center;
+    padding-left: 25px;
+    width: 100px;
+    font-family: Roboto;
+    font-size: 12px;
+    line-height: 14px;
+    color: #5c5c5c;
+  }
+
+  &__status {
+    display: flex;
+    align-items: center;
+    padding-left: 25px;
+    width: 62px;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+
+    &_paused {
+      color: #ff8346;
+    }
+    &_draft {
+      color: #5c5c5c;
+    }
+    &_online {
+      color: #1bda9d;
+    }
+    &_stopped {
+      color: #fe4848;
+    }
+  }
+
+  &__site {
+    display: flex;
+    align-items: center;
+    padding-left: 47px;
+    width: 175px;
+    font-family: Roboto;
+    font-size: 12px;
+    line-height: 14px;
+    color: #5c5c5c;
+  }
+
+  &__result {
+    display: flex;
+    align-items: center;
+  }
+
+  &__result-button,
+  &__finalize-button {
+    text-align: center;
+    width: 95px;
+    height: 30px;
+    font-weight: 500;
+    border: none;
+    background: #2ee5ac;
+    border-radius: 10px;
+    outline: none;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out; // background-color or all
+
+    &:hover {
+      background-color: #32bd91;
+    }
+  }
+
+  &__finalize-button {
+    background: #7d7d7d;
+
+    &:hover {
+      background-color: #635d5d;
+    }
+  }
+}

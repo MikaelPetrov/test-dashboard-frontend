@@ -1,0 +1,157 @@
+.dashboard {
+  &__title {
+    height: 40px;
+    // padding-bottom: 40px;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 32px;
+    display: flex;
+    align-items: center;
+    color: #222222;
+  }
+}
+
+.search {
+  margin-top: 40px;
+  position: relative;
+
+  &__icon {
+    position: absolute;
+    height: 14px;
+    width: 13px;
+    top: 15px;
+    left: 13px;
+    color: #222222;
+  }
+
+  &__tests {
+    position: absolute;
+    top: 15px;
+    right: 16.5px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #d1d1d1;
+  }
+
+  &__input {
+    padding-left: 37px;
+    margin-bottom: 30px;
+    background: #ffffff;
+    border: 1px solid #ebebeb;
+    box-sizing: border-box;
+    border-radius: 15px;
+    height: 45px;
+    width: 100%;
+    outline: none;
+
+    &::placeholder {
+      color: #d1d1d1;
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
+}
+
+.notFounded {
+  position: relative;
+
+  // width: 810px;
+  left: 66px;
+  top: 114px;
+
+  &__result {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    padding-bottom: 37px;
+  }
+
+  &__text {
+    width: 810px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #222222;
+  }
+
+  &__reset-button {
+    position: relative;
+    width: 95px;
+    height: 30px;
+    left: 357px;
+    background: #2ee5ac;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease-in-out; // background-color or all
+
+    &:hover {
+      background-color: #32bd91;
+    }
+  }
+}
+
+.resetButton {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 95px;
+  height: 30px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  background: #2ee5ac;
+  border: 1px solid #2ee5ac;
+  box-sizing: border-box;
+  border-radius: 10px;
+  outline: none;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out; // background-color or all
+
+  &:hover {
+    background-color: #32bd91;
+  }
+}
+
+.result {
+  padding-top: 4px;
+  width: 506px;
+  height: 20px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #222222;
+}
+
+.back {
+  padding-top: 616px;
+  align-items: center;
+  display: flex;
+  &__text {
+    margin-left: 19px;
+    width: 93px;
+    height: 25px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    color: #222222;
+    cursor: pointer;
+  }
+
+  &__icon {
+    height: 16px;
+    width: 9px;
+    cursor: pointer;
+  }
+}
