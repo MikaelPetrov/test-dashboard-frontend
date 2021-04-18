@@ -1,10 +1,9 @@
 .header {
+  // display: grid;
+  // grid-template-columns: 414px 125px 109px 249px;
   display: flex;
   padding-left: 15px;
   padding-bottom: 10px;
-  // display: grid;
-  // grid-template-columns: 414px 125px 109px 249px;
-  font-family: Roboto;
   font-weight: 500;
   font-size: 11px;
   line-height: 13px;
@@ -30,24 +29,26 @@
     width: 109px;
   }
 
-  &__site {
+  &__url {
     display: flex;
     align-items: center;
     width: 249px;
   }
 }
 
+.wrapper {
+  cursor: pointer;
+}
+
 .header__arrowUp-icon {
   margin-left: 8px;
   width: 7px;
   height: 4px;
-  cursor: pointer;
 }
 
 .header__arrowDown-icon {
   margin-left: 8px;
   width: 7px;
   height: 4px;
-  cursor: pointer;
   transform: rotate(180deg);
 }
