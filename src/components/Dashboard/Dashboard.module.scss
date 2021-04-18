@@ -1,14 +1,12 @@
-.dashboard {
-  &__title {
-    height: 40px;
-    // padding-bottom: 40px;
-    font-weight: bold;
-    font-size: 26px;
-    line-height: 32px;
-    display: flex;
-    align-items: center;
-    color: #222222;
-  }
+.title {
+  height: 40px;
+  // padding-bottom: 40px;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  color: #222222;
 }
 
 .search {
@@ -54,7 +52,6 @@
 
 .notFounded {
   position: relative;
-
   // width: 810px;
   left: 66px;
   top: 114px;
@@ -118,40 +115,5 @@
 
   &:hover {
     background-color: #32bd91;
-  }
-}
-
-.result {
-  padding-top: 4px;
-  width: 506px;
-  height: 20px;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 17px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  color: #222222;
-}
-
-.back {
-  padding-top: 616px;
-  align-items: center;
-  display: flex;
-  &__text {
-    margin-left: 19px;
-    width: 93px;
-    height: 25px;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 25px;
-    color: #222222;
-    cursor: pointer;
-  }
-
-  &__icon {
-    height: 16px;
-    width: 9px;
-    cursor: pointer;
   }
 }

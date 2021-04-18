@@ -1,20 +1,20 @@
 import { ChangeEvent, memo, useEffect, useState } from 'react';
-import { backIcon } from '../../icons';
+import { searchIcon } from '../../icons/searchIcon';
 import Icon from '../../uiKit/Icon/Index';
+import Cards from '../Cards/Cards';
 import styles from './Dashboard.module.scss';
-import DashboardContent from './DashboardContent';
-import { TypeCard } from './types';
+import { TypeCard, TypeFieldNames } from './types';
 
 type Props = {
   cards: TypeCard[];
   foundedCards: TypeCard[];
+  fieldNames: TypeFieldNames[];
   thunkFoundedCards: (foundedCards: TypeCard[], searchValue: string) => void;
+  thunkSortedCards: (foundedCards: TypeCard[], sortedField: string) => void;
+  thunkCardInfo: (id: number, name: string, phase: string) => void;
 };
 
 const Dashboard: React.FC<Props> = (props): JSX.Element => {
-  const [resultTitle, setResultTitle] = useState('Dashboard');
-  const [resultValue, setResultValue] = useState('');
-
   const [searchValue, setSearchValue] = useState<string>('');
   const onSearchValueChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.currentTarget.value);
@@ -25,44 +25,44 @@ const Dashboard: React.FC<Props> = (props): JSX.Element => {
   }, [searchValue]);
 
   return (
-    <div>
-      <div className={styles['dashboard']}>
-        <div className={styles['dashboard__title']}>{resultTitle}</div>
-        {resultTitle === 'Dashboard' ? (
-          <DashboardContent
-            foundedCards={props.foundedCards}
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
-            onSearchValueChange={onSearchValueChange}
-            setResultTitle={setResultTitle}
-            setResultValue={setResultValue}
+    <>
+      <div className={styles['title']}>Dashboard</div>
+      <div className={styles['search']}>
+        <input
+          value={searchValue}
+          onChange={onSearchValueChange}
+          placeholder="What test are you looking for?"
+          type="input"
+          className={styles['search__input']}
+        />
+        {
+          <Icon
+            className={styles['search__icon']}
+            path={searchIcon.path}
+            viewBox={searchIcon.viewBox}
+            title="SearchIcon"
           />
-        ) : (
-          <div>
-            <div className={styles['result']}>{resultValue}</div>
-            <div className={styles['back']}>
-              <Icon
-                className={styles['back__icon']}
-                path={backIcon.path}
-                viewBox={backIcon.viewBox}
-                title="BackIcon"
-                onClick={() => {
-                  setResultTitle('Dashboard');
-                }}
-              />
-              <span
-                className={styles['back__text']}
-                onClick={() => {
-                  setResultTitle('Dashboard');
-                }}
-              >
-                Back
-              </span>
-            </div>
-          </div>
-        )}
+        }
+        <div className={styles['search__tests']}>{`${props.foundedCards.length} tests`}</div>
       </div>
-    </div>
+      {props.foundedCards.length ? (
+        <Cards
+          foundedCards={props.foundedCards}
+          fieldNames={props.fieldNames}
+          thunkSortedCards={props.thunkSortedCards}
+          thunkCardInfo={props.thunkCardInfo}
+        />
+      ) : (
+        <div className={styles['notFounded']}>
+          <div className={styles['notFounded__result']}>
+            <span className={styles['notFounded__text']}>Your search did not match any results.</span>
+          </div>
+          <button onClick={() => setSearchValue('')} className={styles['notFounded__reset-button']}>
+            <span>Reset</span>
+          </button>
+        </div>
+      )}
+    </>
   );
 };
 

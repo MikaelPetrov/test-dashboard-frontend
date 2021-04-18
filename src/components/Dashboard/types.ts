@@ -19,3 +19,14 @@ export type TypeCard = {
   status: string;
   siteId: number;
 };
+
+export type TypeCardInfo = {
+  id: number;
+  name: string;
+  phase: string;
+};
+
+export type TypeFieldNames = {
+  fieldName: string;
+  className: string;
+};

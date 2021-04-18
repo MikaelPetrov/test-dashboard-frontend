@@ -1,10 +1,4 @@
-import {
-  Action,
-  applyMiddleware,
-  combineReducers,
-  compose,
-  createStore,
-} from 'redux';
+import { Action, applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunkMiddleware, { ThunkAction } from 'redux-thunk';
 import dashboardReducer from './dashboardReducer';
 
@@ -19,17 +13,11 @@ export type TypeInferActions<T> = T extends {
 }
   ? U
   : never;
-export type TypeBaseThunk<A extends Action, R = Promise<void>> = ThunkAction<
-  R,
-  TypeAppState,
-  unknown,
-  A
->;
+export type TypeBaseThunk<A extends Action, R = Promise<void>> = ThunkAction<R, TypeAppState, unknown, A>;
 
-const store = createStore(
-  rootReducer,
-  compose(applyMiddleware(thunkMiddleware)),
-);
+const store = createStore(rootReducer, compose(applyMiddleware(thunkMiddleware)));
 
 //  @ts-ignore
+window.store = store;
+
 export default store;
