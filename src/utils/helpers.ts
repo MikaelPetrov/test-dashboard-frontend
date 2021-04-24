@@ -26,13 +26,13 @@ export function getURLWithoutProtocol(url: string) {
   }
 }
 
-export function customSortWithoutStatus(array: TypeCard[], sortedField: string, isSortedAsc: boolean) {
+export function sortFields(array: TypeCard[], sortedField: string, isSortedDesc: boolean) {
   array.sort((a: any, b: any) => {
-    if (!isSortedAsc) {
+    if (!isSortedDesc) {
       if (a[sortedField] > b[sortedField]) return 1;
       if (a[sortedField] < b[sortedField]) return -1;
     }
-    if (isSortedAsc) {
+    if (isSortedDesc) {
       if (a[sortedField] < b[sortedField]) return 1;
       if (a[sortedField] > b[sortedField]) return -1;
     }
@@ -40,18 +40,18 @@ export function customSortWithoutStatus(array: TypeCard[], sortedField: string, 
   });
 }
 
-export function customSortWithStatus(array: TypeCard[], sortedField: string, isSortedAsc: boolean) {
-  const sortBy = ['Online', 'Paused', 'Stopped', 'Draft'];
-  const sortByObject = sortBy.reduce((obj: any, item: any, index: any) => {
+export function sortByStatusField(array: TypeCard[], sortedField: string, isSortedDesc: boolean) {
+  const ascStatuses = ['Online', 'Paused', 'Stopped', 'Draft'];
+  const sortByObject = ascStatuses.reduce((obj: any, item: any, index: any) => {
     return {
       ...obj,
       [item]: index,
     };
   }, {});
-  if (isSortedAsc) {
+  if (isSortedDesc) {
     return array.sort((a: any, b: any) => sortByObject[a[sortedField]] - sortByObject[b[sortedField]]);
   }
-  if (!isSortedAsc) {
+  if (!isSortedDesc) {
     return array.sort((a: any, b: any) => sortByObject[a[sortedField]] - sortByObject[b[sortedField]]).reverse();
   }
 }

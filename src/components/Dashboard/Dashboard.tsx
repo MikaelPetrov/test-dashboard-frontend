@@ -3,12 +3,11 @@ import { searchIcon } from '../../icons/searchIcon';
 import Icon from '../../uiKit/Icon/Index';
 import Cards from '../Cards/Cards';
 import styles from './Dashboard.module.scss';
-import { TypeCard, TypeFieldNames } from './types';
+import { TypeCard } from './types';
 
 type Props = {
   cards: TypeCard[];
   foundedCards: TypeCard[];
-  fieldNames: TypeFieldNames[];
   thunkFoundedCards: (foundedCards: TypeCard[], searchValue: string) => void;
   thunkSortedCards: (foundedCards: TypeCard[], sortedField: string) => void;
   thunkCardInfo: (id: number, name: string, phase: string) => void;
@@ -48,7 +47,6 @@ const Dashboard: React.FC<Props> = (props): JSX.Element => {
       {props.foundedCards.length ? (
         <Cards
           foundedCards={props.foundedCards}
-          fieldNames={props.fieldNames}
           thunkSortedCards={props.thunkSortedCards}
           thunkCardInfo={props.thunkCardInfo}
         />

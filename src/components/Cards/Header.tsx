@@ -1,37 +1,45 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { arrowIcon } from '../../icons/arrowIcon';
 import Icon from '../../uiKit/Icon/Index';
-import { TypeCard, TypeFieldNames } from '../Dashboard/types';
+import { TypeCard } from '../Dashboard/types';
+import { fieldNames } from './constants';
 import styles from './Header.module.scss';
 
 type Props = {
   foundedCards: TypeCard[];
-  fieldNames: TypeFieldNames[];
-  thunkSortedCards: (foundedCards: TypeCard[], sortedField: string, isSortedAsc: boolean) => void;
+  thunkSortedCards: (foundedCards: TypeCard[], sortedField: string, isSortedDesc: boolean) => void;
 };
 
 const Header: React.FC<Props> = (props): JSX.Element => {
-  const [isSortedAsc, setIsSortedAsc] = useState(false);
-  const [sortFieldName, setsortFieldName] = useState('');
+  const [isSortedDesc, setIsSortedDesc] = useState(false);
+  const [sortFieldName, setSortFieldName] = useState('');
 
-  const handleSortCards = (foundedCards: TypeCard[], sortedField: string, isSortedAsc: boolean) => {
-    props.thunkSortedCards(foundedCards, sortedField, isSortedAsc);
-    setsortFieldName(sortedField);
-    setIsSortedAsc((prevState) => !prevState);
+  const handleSortCards = (foundedCards: TypeCard[], sortedField: string, isSortedDesc: boolean) => {
+    if (sortFieldName !== sortedField) {
+      props.thunkSortedCards(foundedCards, sortedField, false);
+    } else {
+      props.thunkSortedCards(foundedCards, sortedField, isSortedDesc);
+    }
+    setSortFieldName(sortedField);
+    setIsSortedDesc((prevState) => !prevState);
     // setIsSortedAsc(!isSortedAsc);
   };
 
+  useEffect(() => {
+    setIsSortedDesc(true);
+  }, [sortFieldName]);
+
   return (
     <div className={styles['header']}>
-      {props.fieldNames.map((obj) => {
+      {fieldNames.map((obj) => {
         return (
           <div className={styles[obj.className]}>
             <div
               className={styles['wrapper']}
-              onClick={() => handleSortCards(props.foundedCards, obj.fieldName, isSortedAsc)}
+              onClick={() => handleSortCards(props.foundedCards, obj.fieldName, isSortedDesc)}
             >
               <span>{obj.fieldName}</span>
-              {isSortedAsc && sortFieldName === obj.fieldName && (
+              {isSortedDesc && sortFieldName === obj.fieldName && (
                 <Icon
                   className={styles['header__arrowUp-icon']}
                   path={arrowIcon.path}
@@ -39,7 +47,7 @@ const Header: React.FC<Props> = (props): JSX.Element => {
                   title="ArrowUp"
                 />
               )}
-              {!isSortedAsc && sortFieldName === obj.fieldName && (
+              {!isSortedDesc && sortFieldName === obj.fieldName && (
                 <Icon
                   className={styles['header__arrowDown-icon']}
                   path={arrowIcon.path}

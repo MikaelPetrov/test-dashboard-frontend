@@ -1,46 +1,53 @@
 .title {
-  height: 40px;
-  // padding-bottom: 40px;
-  font-weight: bold;
-  font-size: 26px;
-  line-height: 32px;
-  display: flex;
   align-items: center;
   color: #222222;
+  display: flex;
+  font-family: Montserrat;
+  font-size: 26px;
+  font-weight: bold;
+  height: 40px;
+  line-height: 32px;
 }
 
 .search {
+  font-family: Roboto;
   margin-top: 40px;
   position: relative;
 
   &__icon {
-    position: absolute;
-    height: 14px;
-    width: 13px;
-    top: 15px;
-    left: 13px;
     color: #222222;
+    height: 14px;
+    left: 13px;
+    position: absolute;
+    top: 15px;
+    width: 13px;
   }
 
   &__tests {
-    position: absolute;
-    top: 15px;
-    right: 16.5px;
+    color: #d1d1d1;
     font-size: 14px;
     line-height: 16px;
-    color: #d1d1d1;
+    position: absolute;
+    right: 16.5px;
+    top: 15px;
   }
 
   &__input {
-    padding-left: 37px;
-    margin-bottom: 30px;
     background: #ffffff;
     border: 1px solid #ebebeb;
-    box-sizing: border-box;
     border-radius: 15px;
+    box-sizing: border-box;
     height: 45px;
-    width: 100%;
+    margin-bottom: 30px;
     outline: none;
+    padding-left: 37px;
+    width: 100%;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+    color: #474747;
 
     &::placeholder {
       color: #d1d1d1;
@@ -51,69 +58,46 @@
 }
 
 .notFounded {
-  position: relative;
-  // width: 810px;
   left: 66px;
+  position: relative;
   top: 114px;
 
   &__result {
-    display: flex;
     align-items: center;
+    display: flex;
     height: 70px;
     padding-bottom: 37px;
   }
 
   &__text {
-    width: 810px;
-    text-align: center;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 22px;
     color: #222222;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    text-align: center;
+    width: 810px;
   }
 
   &__reset-button {
-    position: relative;
-    width: 95px;
-    height: 30px;
-    left: 357px;
     background: #2ee5ac;
     border: none;
     border-radius: 10px;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 15px;
     color: #ffffff;
     cursor: pointer;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: 600;
+    height: 30px;
+    left: 357px;
+    line-height: 15px;
     outline: none;
-    transition: background-color 0.3s ease-in-out; // background-color or all
+    position: relative;
+    transition: background-color 0.3s ease-in-out;
+    width: 95px;
 
     &:hover {
       background-color: #32bd91;
     }
-  }
-}
-
-.resetButton {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  width: 95px;
-  height: 30px;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 15px;
-  background: #2ee5ac;
-  border: 1px solid #2ee5ac;
-  box-sizing: border-box;
-  border-radius: 10px;
-  outline: none;
-  color: #ffffff;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out; // background-color or all
-
-  &:hover {
-    background-color: #32bd91;
   }
 }
